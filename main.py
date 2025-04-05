@@ -1,7 +1,7 @@
-from fastapi import FastApi
+from fastapi import FastAPI
 from flask import Flask, render_template, request
 
-app = FastApi()
+app = FastAPI()
 
 @app.get("/")
 async def root():
