@@ -4,33 +4,33 @@
 <head>
   <title>MindPit</title>
 
-  <!-- Page style settings! -->
+  <!-- Page style settings -->
   <style>
     body {
-      background: #f5f5f0;         /* light grey background */
-      color: #3e2f1c;              /* dark brown text */
-      font-family: sans-serif;     /* clean easy font */
-      padding: 20px;               /* space around content */
+      background: #f5f5f0;         /* soft grey bg */
+      color: #3e2f1c;              /* brown text */
+      font-family: sans-serif;     /* clean font */
+      padding: 20px;               /* space around page */
     }
 
     .top {
-      display: flex;               /* items in a row */
-      justify-content: space-between; /* space left and right */
-      margin-bottom: 20px;         /* space under top row */
+      display: flex;               /* row layout */
+      justify-content: space-between; /* spread out */
+      margin-bottom: 20px;         /* space below bar */
     }
 
     .buttons {
-      text-align: center;          /* center the buttons */
-      margin-bottom: 20px;         /* space under buttons */
+      text-align: center;          /* center buttons */
+      margin-bottom: 20px;         /* space below buttons */
     }
 
     .buttons button {
-      padding: 10px 20px;          /* button size inside */
-      margin: 5px;                 /* space between buttons */
-      background: #b38b59;         /* light brown color */
-      border: none;                /* no border line */
-      color: white;                /* white button text */
-      border-radius: 5px;          /* rounded corners */
+      padding: 10px 20px;          /* size inside */
+      margin: 5px;                 /* space between */
+      background: #b38b59;         /* light brown */
+      border: none;                /* no outline */
+      color: white;                /* white text */
+      border-radius: 5px;          /* round shape */
       cursor: pointer;             /* hand on hover */
     }
 
@@ -39,64 +39,64 @@
     }
 
     .top button {
-      padding: 10px 15px;          /* login/signup size */
-      margin-left: 10px;           /* space between buttons */
-      background: #6e5841;         /* medium brown color */
+      padding: 10px 15px;          /* size inside */
+      margin-left: 10px;           /* space between */
+      background: #6e5841;         /* medium brown */
       border: none;                /* no border */
       color: white;                /* white text */
-      border-radius: 5px;          /* smooth corners */
-      cursor: pointer;             /* hand when hover */
+      border-radius: 5px;          /* rounded corners */
+      cursor: pointer;             /* hover hand */
     }
 
     .top button:hover {
-      background: #4f3f2d;         /* dark hover color */
+      background: #4f3f2d;         /* dark brown hover */
     }
 
     .box {
-      border: 4px solid #ddd;      /* soft grey border */
-      border-radius: 10px;         /* round corners */
-      overflow: hidden;            /* hide overflow parts */
-      margin: 0 auto;              /* center the box */
-      width: fit-content;          /* size fits content */
-      background: white;           /* white background box */
+      border: 4px solid #ddd;      /* soft border */
+      border-radius: 10px;         /* round edges */
+      overflow: hidden;            /* hide overflow */
+      margin: 0 auto;              /* center it */
+      width: fit-content;          /* fits inside */
+      background: white;           /* white box */
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top bar with name -->
+  <!-- top bar title and buttons -->
   <div class="top">
-    <h1>MindPit</h1> <!-- Website title -->
+    <h1>MindPit</h1> <!-- Site name -->
 
-    <!-- Login and signup buttons -->
+    <!-- Login + Sign Up -->
     <div>
       <button>Login</button>
       <button>Sign Up</button>
     </div>
   </div>
 
-  <!-- Buttons to resize iframe -->
+  <!-- view change buttons -->
   <div class="buttons">
-    <button onclick="resizeFrame(1200,800)">Money</button>
+    <button onclick="resizeFrame(1200,800)">Payments</button>
     <button onclick="resizeFrame(1200,800)">Professor View</button>
-    <button onclick="resizeFrame(1200,800)">Upload Images</button>
+    <button onclick="resizeFrame(1200,800)">Contact Exchange</button>
+    <button onclick="resizeFrame(1200,800)">Upload Your Books Here!</button>
   </div>
 
-  <!-- The iframe wrapper box -->
+  <!-- iframe wrapped in box -->
   <div class="box">
     <iframe id="viewer" src="/demo" width="1200" height="800"></iframe>
   </div>
 
-  <!-- Makes iframe change size -->
+  <!-- resize iframe function -->
   <script>
     function resizeFrame(w, h) {
-      const f = document.getElementById("viewer"); // get the iframe
-      f.style.width = w + "px";  // set new width
-      f.style.height = h + "px"; // set new height
+      const f = document.getElementById("viewer"); // grab iframe
+      f.style.width = w + "px";  // update width
+      f.style.height = h + "px"; // update height
     }
   </script>
 
 </body>
 </html>
-
