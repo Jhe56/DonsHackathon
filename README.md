@@ -14,3 +14,7 @@ python3 app.py
 ```
 This will start up the app.py
 - *Make sure to be in a venv with all the dependencies installed*
+
+
+Credits:
+<a href="https://www.youtube.com/watch?v=45P3xQPaYxc">Flash Full Course: Build Stunning Web Apps Fast | Python Flask Tutorial</a>
