@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Marketplace{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Books for Sale</h2>
+    {% for book in books %}
+        <div class="book-card">
+            <h3>{{ book.title }}</h3>
+            <p><strong>Course:</strong> {{ book.course }}</p>
+            <p><strong>Price:</strong> ${{ book.price }}</p>
+            <p><strong>Contact:</strong> {{ book.contact_info }}</p>
+        </div>
+    {% else %}
+        <p>No books posted yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Books for Sale</h2>
+        <a href="{{ url_for('post_book') }}">Post a Book</a>
+        {% for book in books %}
+            <div class="book-card">
+                <h3>{{ book.title }}</h3>
+                <p><strong>Course:</strong> {{ book.course }}</p>
+                <p><strong>Price:</strong> ${{ book.price }}</p>
+                <p><strong>Contact:</strong> {{ book.contact_info }}</p>
+            </div>
+        {% else %}
+            <p>No books posted yet.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
