@@ -1,0 +1,82 @@
+<!-- this is the demo page -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inside Viewer</title>
+
+  <!-- page styles go here -->
+  <style>
+    body {
+      display: flex;           /* split screen layout */
+      height: 100vh;           /* full window height */
+      margin: 0;               /* no outside space */
+      font-family: sans-serif; /* clean readable font */
+      background: #fbf9f5;     /* creamy page color */
+      color: #3e2f1c;          /* dark brown text color */
+    }
+
+    .left, .right {
+      width: 50%;              /* half screen each side */
+      padding: 20px;           /* space inside each side */
+      box-sizing: border-box;  /* includes padding in size */
+    }
+
+    img {
+      max-width: 100%;         /* image fits container */
+      margin-bottom: 10px;     /* space under each image */
+      border-radius: 8px;      /* rounded image corners */
+      border: 2px solid #ddd;  /* light border line */
+    }
+
+    textarea {
+      width: 100%;             /* fills container width */
+      height: 150px;           /* set text box height */
+      padding: 10px;           /* space inside box */
+      border: 2px solid #ccc;  /* light grey border */
+      border-radius: 5px;      /* smooth box corners */
+      resize: none;            /* can't resize box */
+    }
+
+    .actions {
+      margin-top: 10px;        /* space above buttons */
+    }
+
+    button {
+      padding: 10px 20px;      /* space inside buttons */
+      margin-right: 10px;      /* space between buttons */
+      background: #b38b59;     /* soft brown color */
+      color: white;            /* white button text */
+      border: none;            /* no border line */
+      border-radius: 5px;      /* rounded button corners */
+      cursor: pointer;         /* shows hand on hover */
+    }
+
+    button:hover {
+      background: #916c44;     /* darker on hover */
+    }
+  </style>
+</head>
+
+<!-- split screen layout starts -->
+<body>
+
+  <!-- left side with images! -->
+  <div class="left">
+    <h2>Images</h2>
+    <img src="https://via.placeholder.com/300"> <!-- example image -->
+    <img src="https://via.placeholder.com/300"> <!-- another image -->
+  </div>
+
+  <!-- right side with text box -->
+  <div class="right">
+    <h2>Description</h2>
+    <textarea placeholder="Write something..."></textarea> <!-- writing area -->
+
+    <div class="actions">
+      <button>Submit</button> <!-- sends message -->
+      <button>Cancel</button> <!-- clears or exits -->
+    </div>
+  </div>
+
+</body>
+</html>
