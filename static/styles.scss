@@ -1,5 +1,5 @@
 body{
-    background-color: lightskyblue;
+    background-color: wheat;
     font-family: Arial, sans-serif;
     color: #333;
 }
@@ -7,6 +7,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 4dvh;
+
 }
 .table{
     display: flex;
@@ -24,4 +26,11 @@ body{
         text-align: center;
         margin: 1dvw;
     }
+}
+.description {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    color: black;
 }
