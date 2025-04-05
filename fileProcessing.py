@@ -13,14 +13,13 @@ class fileProcessing:
 
     @app.route("/")
     def home():
-        return render_template("basicPagefromGPT.html")
+        return render_template("tempForm.html")
 
     @app.route("/passFile", methods = ["POST","GET"])
     def fileProcessing():
         if request.method == "POST":
-            files given = request.form["fileToUpload"]
-            
-        return given
+            # files given = request.form["fileToUpload"]
+            return "FILE"
 
     if __name__ == "__main__":
         app.run()
