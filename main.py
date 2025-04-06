@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from flask import Flask, render_template, request
 
 app = FastAPI()
+@app.get("/")
+
 
 @app.get("/passFile", methods = ["POST","GET"])
 async def root():
