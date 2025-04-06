@@ -1,33 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Marketplace{% endblock %}
+
+{% block title %}DonsHack Marketplace{% endblock %}
 
 {% block content %}
 <div class="container">
+    <h1>Welcome to DonsHack Book Exchange 📚</h1>
     <h2>Books for Sale</h2>
-    {% for book in books %}
-        <div class="book-card">
-            <h3>{{ book.title }}</h3>
-            <p><strong>Course:</strong> {{ book.course }}</p>
-            <p><strong>Price:</strong> ${{ book.price }}</p>
-            <p><strong>Contact:</strong> {{ book.contact_info }}</p>
-        </div>
-    {% else %}
-        <p>No books posted yet.</p>
-    {% endfor %}
-</div>
-{% endblock %}
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Marketplace</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h2>Books for Sale</h2>
-        <a href="{{ url_for('post_book') }}">Post a Book</a>
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('post_book') }}"><button>Post a Book</button></a>
         {% for book in books %}
             <div class="book-card">
                 <h3>{{ book.title }}</h3>
@@ -38,6 +19,9 @@
         {% else %}
             <p>No books posted yet.</p>
         {% endfor %}
-    </div>
-</body>
-</html>
+    {% else %}
+        <p>You need to log in to post books or view details.</p>
+        <a href="{{ url_for('login') }}"><button>Login</button></a>
+    {% endif %}
+</div>
+{% endblock %}

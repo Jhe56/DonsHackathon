@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}DonsHack{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <nav>
-        <ul>
+    <div class="header">
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ url_for('marketplace') }}">Marketplace</a></li>
-                <li><a href="{{ url_for('post_book') }}">Post Book</a></li>
-                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <a href="{{ url_for('marketplace') }}">Marketplace</a>
+                <a href="{{ url_for('post_book') }}">Post a Book</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
             {% else %}
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('login') }}">Login</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
             {% endif %}
-        </ul>
-    </nav>
-
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class="flashes">
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+        </nav>
+    </div>
 
     {% block content %}{% endblock %}
+
+    <footer>
+        <p>&copy; 2025 DonsHack</p>
+    </footer>
 </body>
 </html>
