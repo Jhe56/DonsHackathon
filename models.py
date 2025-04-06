@@ -1,14 +1,15 @@
 from sqlalchemy import create_engine, Column, Integer, String, LargeBinary
 from sqlalchemy.ext.declarative import declarative_base
-from database import Base
+# from database import Base
+from database import db
 
 
-class Image(Base):
+class Image(db.Model):
     __tablename__ = "images"
     
-    id = Column(Integer, primary_key=True, index=True)
-    filename = Column(String, index=True)
+    #layouts
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(100), unique=True, nullable=False)
+    mimetype = db.Column(db.Text, nullable=False) 
+    img = db.Column(db.Text, nullable=False) 
     
-    #Image data 
-    image_id = Column(String, index=True) #image id
-    image_url= Column(String, index=True) #image url
