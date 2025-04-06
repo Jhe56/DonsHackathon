@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="buttons">
+  <button onclick="window.location.href='{{ url_for('post_book') }}'">Upload Your Books Here!</button>
+</div>
+
+{% for book in books %}
+<div class="book-pair">
+  {% if book.image %}
+    <img class="book-img" src="{{ url_for('get_img', id=book.image.id) }}" alt="{{ book.title }}">
+  {% endif %}
+
+  <div class="book-info">
+    <h3>{{ book.title }}</h3>
+    <div class="book-meta">
+      <p><strong>Course:</strong> {{ book.course }}</p>
+      <p><strong>Price:</strong> ${{ book.price }}</p>
+      <p><strong>Contact:</strong> {{ book.contact_info }}</p>
+    </div>
+
+    <div class="description-box">
+      <textarea readonly>{{ book.description }}</textarea>
+    </div>
+
+    <div class="actions">
+      <button>👍 Like</button>
+      <button>👎 Dislike</button>
+    </div>
+  </div>
+</div>
+{% else %}
+<p>No books available yet.</p>
+{% endfor %}
+{% endblock %}

@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>MindPit</title> <!-- page title -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}"> <!-- external CSS -->
-</head>
-<body>
-
-  <div class="top"> <!-- top bar -->
-    <h1>MindPit</h1> <!-- site title -->
-    <div class="nav-buttons"> <!-- top buttons -->
-      <button onclick="window.open('/home', '_blank')">Home</button> <!-- go to home -->
-      <button onclick="window.open('/signup', '_blank')">Sign Up</button> <!-- go to signup -->
-      <button onclick="window.open('/login', '_blank')">Login</button> <!-- go to login -->
-      <button onclick="window.open('/logout', '_blank')">Log Out</button> <!-- logout button -->
+{% extends "base.html" %} {% block head %}
+<title>MindPit</title>
+{% endblock %} {% block body %}
+<div class="container">
+    <h1>MindPit</h1>
+    <h2>Buy/Sell/Trade/Giveaway</h2>
+    <div class="description">
+        <i>
+            Share your unused textbooks to other USF students by posting them
+            here!
+        </i>
     </div>
-  </div>
+    <table class="table">
+        <tr>
+            <th>Item</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Contact</th>
+            <th>Payment Method</th>
+            <th>Meetup Location</th>
+        </tr>
+        <tr>
+            <td>banana</td>
+        </tr>
+    </table>
+</div>
+<a href="/login"><button id="Login" type="button">Login</button></a>
+<a href="/upload">Upload an Image</a>
 
-  <div class="buttons"> <!-- center button -->
-    <button onclick="openUpload()">Upload Your Books Here!</button> <!-- upload trigger -->
-  </div>  
-
-  <div class="box"> <!-- iframe container -->
-    <iframe id="viewer" src="/demo"></iframe> <!-- content viewer -->
-  </div>
-
-  <script>
-    function openUpload() {
-      const viewer = document.getElementById("viewer"); // get iframe
-      viewer.src = "/upload_books"; // change source
-      viewer.style.width = "1200px"; // set width
-      viewer.style.height = "800px"; // set height
-    }
-  </script>
-
-</body>
-</html>
+<h2>Uploaded Images</h2>
+{% for img in images %}
+<div style="margin: 10px">
+    <img
+        src="{{ url_for('get_img', id=img.id) }}"
+        alt="{{ img.filename }}"
+        style="max-height: 200px"
+    />
+</div>
+{% endfor %} {% endblock %}

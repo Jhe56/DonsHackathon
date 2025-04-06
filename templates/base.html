@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindPit - Textbook Marketplace</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/extras.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/demo.css') }}">
+</head>
+<body>
+  <div class="top">
+    <h1>MindPit</h1>
+    <nav class="nav-buttons">
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('marketplace') }}">Marketplace</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+      {% endif %}
+    </nav>
+  </div>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
