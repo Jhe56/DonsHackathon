@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Book - MindPit</title> <!-- page title -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/extras.css') }}"> <!-- external CSS -->
+</head>
+<body>
+
+  <div class="box"> <!-- upload form box -->
+    <h2>Upload Book</h2> <!-- heading -->
+    <input type="text" placeholder="Book title"> <!-- title input -->
+    <textarea placeholder="Description"></textarea> <!-- description box -->
+    <input type="text" placeholder="Contact info"> <!-- contact input -->
+    <input type="text" placeholder="Price"> <!-- price input -->
+    <input type="file" accept="image/*"> <!-- image upload -->
+    <button>Publish</button> <!-- publish button -->
+  </div>
+
+</body>
+</html>
