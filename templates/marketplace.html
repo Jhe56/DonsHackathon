@@ -1,35 +1,26 @@
 {% extends "base.html" %}
 
-{% block title %}DonsHack Marketplace{% endblock %}
-
 {% block content %}
-<div class="container">
-  <h2>Books for Sale</h2>
+<h2>Books for Sale</h2>
 
-  {% if current_user.is_authenticated %}
-    <div class="buttons">
-      <a href="{{ url_for('post_book') }}"><button>Post a Book</button></a>
-    </div>
-    {% for book in books %}
-  <div class="book-pair">
-    {% if book.image %}
-      <img class="book-img" src="{{ url_for('get_img', id=book.image.id) }}" alt="Book Image" />
-    {% else %}
-      <div class="book-img" style="background:#eee; width:300px; height:200px; display:flex; align-items:center; justify-content:center;">
-        No Image
-      </div>
-    {% endif %}
-    <div class="book-info">
-      <h3>{{ book.title }}</h3>
-      <p><strong>Course:</strong> {{ book.course }}</p>
-      <p><strong>Price:</strong> ${{ book.price }}</p>
-      <p><strong>Contact:</strong> {{ book.contact_info }}</p>
-    </div>
-  </div>
-{% endfor %}
-  {% else %}
-    <p>You need to log in to post books or view details.</p>
-    <a href="{{ url_for('login') }}"><button>Login</button></a>
-  {% endif %}
+<div class="buttons">
+  <button onclick="window.location.href='{{ url_for('post_book') }}'">Post a Book</button>
 </div>
+
+{% for book in books %}
+<div class="book-pair">
+  {% if book.image %}
+    <img class="book-img" src="{{ url_for('get_img', id=book.image.id) }}" alt="{{ book.title }}">
+  {% endif %}
+  <div class="book-info">
+    <h3>{{ book.title }}</h3>
+    <p>Course: {{ book.course }}</p>
+    <p>Price: ${{ book.price }}</p>
+    <p>Contact: {{ book.contact_info }}</p>
+    <p>{{ book.description }}</p>
+  </div>
+</div>
+{% else %}
+<p>No books available yet.</p>
+{% endfor %}
 {% endblock %}

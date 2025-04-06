@@ -22,6 +22,7 @@ class Book(db.Model):
     course = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
     contact_info = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     image_id = db.Column(db.Integer, db.ForeignKey('images.id'), nullable=True)
     image = db.relationship('Image')

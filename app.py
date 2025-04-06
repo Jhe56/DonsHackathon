@@ -11,11 +11,10 @@ from werkzeug.utils import secure_filename
 from models import User, Book, Image  # Import models here
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'supersecretkey'
+app.config['SECRET_KEY'] = 'itsasecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db_init(app)
-
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -25,9 +24,8 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 @app.route('/')
-def index():
-    images = Image.query.all()
-    return render_template('index.html', images=images)
+def home():
+    return redirect(url_for('marketplace'))
 
 
 @app.route('/upload', methods=["POST", "GET"])
@@ -110,6 +108,16 @@ def post_book():
         course = request.form['course']
         price = float(request.form['price'])
         contact_info = request.form['contact_info']
+        description = request.form['description']  # Get description
+
+        new_book = Book(
+            title=title,
+            course=course,
+            price=price,
+            contact_info=contact_info,
+            description=description,
+            user_id=current_user.id
+        )
 
         # Handle image upload
         if 'image' in request.files:
@@ -119,24 +127,8 @@ def post_book():
                 mimetype = image_file.mimetype
                 img = Image(img=image_file.read(), filename=filename, mimetype=mimetype)
                 db.session.add(img)
-                db.session.flush()  # This gets us the img.id
-
-                new_book = Book(
-                    title=title,
-                    course=course,
-                    price=price,
-                    contact_info=contact_info,
-                    user_id=current_user.id,
-                    image_id=img.id
-                )
-        else:
-            new_book = Book(
-                title=title,
-                course=course,
-                price=price,
-                contact_info=contact_info,
-                user_id=current_user.id
-            )
+                db.session.flush()
+                new_book.image_id = img.id
 
         db.session.add(new_book)
         db.session.commit()
@@ -150,7 +142,6 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/marketplace')
-@login_required
 def marketplace():
     books = Book.query.all()
     return render_template('marketplace.html', books=books)
