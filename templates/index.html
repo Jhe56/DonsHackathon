@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MindPit</title> <!-- page title -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}"> <!-- external CSS -->
+</head>
+<body>
+
+  <div class="top"> <!-- top bar -->
+    <h1>MindPit</h1> <!-- site title -->
+    <div class="nav-buttons"> <!-- top buttons -->
+      <button onclick="window.open('/home', '_blank')">Home</button> <!-- go to home -->
+      <button onclick="window.open('/signup', '_blank')">Sign Up</button> <!-- go to signup -->
+      <button onclick="window.open('/login', '_blank')">Login</button> <!-- go to login -->
+      <button onclick="window.open('/logout', '_blank')">Log Out</button> <!-- logout button -->
+    </div>
+  </div>
+
+  <div class="buttons"> <!-- center button -->
+    <button onclick="openUpload()">Upload Your Books Here!</button> <!-- upload trigger -->
+  </div>  
+
+  <div class="box"> <!-- iframe container -->
+    <iframe id="viewer" src="/demo"></iframe> <!-- content viewer -->
+  </div>
+
+  <script>
+    function openUpload() {
+      const viewer = document.getElementById("viewer"); // get iframe
+      viewer.src = "/upload_books"; // change source
+      viewer.style.width = "1200px"; // set width
+      viewer.style.height = "800px"; // set height
+    }
+  </script>
+
+</body>
+</html>
