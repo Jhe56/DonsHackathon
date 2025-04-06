@@ -8,4 +8,7 @@ class Image(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     filename = Column(String, index=True)
-    data= Column(LargeBinary)
+    
+    #Image data 
+    image_id = Column(String, index=True) #image id
+    image_url= Column(String, index=True) #image url
