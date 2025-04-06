@@ -1,0 +1,134 @@
+body {
+  background: #f5f5f0;
+  font-family: 'Arial', sans-serif;
+  color: #3e2f1c;
+  padding: 20px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #b38b59;
+}
+
+h1 {
+  color: #916c44;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.nav-buttons a {
+  padding: 12px 25px;
+  margin-left: 15px;
+  background: #b38b59;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons a:hover {
+  background: #916c44;
+  transform: translateY(-2px);
+}
+
+/* Marketplace Layout */
+.marketplace-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.book-listing {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Left Side - Description Box */
+.description-box {
+  padding: 30px;
+  background: #f8f8f8;
+  border-right: 1px solid #ddd;
+}
+
+.description-box h2 {
+  color: #916c44;
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.book-meta {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+.book-meta p {
+  margin: 10px 0;
+}
+
+.book-description {
+  background: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* Right Side - Image */
+.book-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.book-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+.post-book-btn {
+  display: block;
+  width: 200px;
+  padding: 15px;
+  margin: 30px auto;
+  background: #b38b59;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.post-book-btn:hover {
+  background: #916c44;
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.no-books {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 40px;
+}
