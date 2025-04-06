@@ -1,13 +1,22 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from database import db_init, db
+from flask import Flask, render_template, redirect, url_for, request, flash, Response
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_scss import Scss
+from sqlalchemy.orm import Session
+# from database import Sessionlocal, engine
+from models import Image
+from flask import request, session, send_from_directory
+from werkzeug.utils import secure_filename
+from models import Image
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db_init(app)
 
-db = SQLAlchemy(app)
+
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
@@ -32,7 +41,44 @@ def load_user(user_id):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    images = Image.query.all()
+    return render_template('index.html', images=images)
+
+
+@app.route('/upload', methods=["GET", "POST"])
+def upload():
+    if request.method == "POST":
+        pic = request.files.get("pic")
+
+        if not pic:
+            flash("No picture uploaded!")
+            return redirect(request.url)
+
+        filename = secure_filename(pic.filename)
+        mimetype = pic.mimetype
+
+        if not filename or not mimetype:
+            flash("Invalid upload.")
+            return redirect(request.url)
+
+        img = Image(img=pic.read(), filename=filename, mimetype=mimetype)
+        db.session.add(img)
+        db.session.commit()
+        flash("Upload successful!")
+
+        return redirect(url_for('index'))
+
+    return render_template('upload.html')
+
+
+
+@app.route('/image/<int:id>')
+def get_img(id):
+    img = Image.query.get(id)
+    if not img:
+        return "No image with that id", 404
+
+    return Response(img.img, mimetype=img.mimetype)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -103,6 +149,4 @@ def marketplace():
     return render_template('marketplace.html', books=books)
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)

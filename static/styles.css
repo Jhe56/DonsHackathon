@@ -1,138 +1,37 @@
-/* General Page Styles */
 body {
-  background: #f5f5f0; /* Soft grey page background color */
-  color: #3e2f1c; /* Dark brown text color used */
-  font-family: sans-serif; /* Simple clean sans serif font */
-  padding: 20px; /* Padding space around entire page */
-  margin: 0; /* Remove default margin */
-  height: 100vh; /* Full height for body */
+  background-color: wheat;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-h1, h2 {
-  font-family: sans-serif; /* Clean sans serif font for headers */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4dvh;
 }
 
-a {
-  text-decoration: none;
-  color: inherit; /* Links with no underline inherit the color */
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border: 2dvh solid #333;
+  border-radius: 5px;
+  padding: 20px;
+}
+.table th, .table td {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  text-align: center;
+  margin: 1dvw;
 }
 
-/* Top Section Styles */
-.top {
-  display: flex; /* Layout items horizontally in row */
-  justify-content: space-between; /* Spread items evenly in row */
-  margin-bottom: 20px; /* Margin below the top bar */
-}
-
-.top button {
-  padding: 10px 15px; /* Padding size inside top buttons */
-  margin-left: 10px; /* Left margin between top buttons */
-  background: #6e5841; /* Medium brown color top buttons */
-  border: none; /* Remove border from top buttons */
-  color: white; /* White text color top buttons */
-  border-radius: 5px; /* Rounded corners top button style */
-  cursor: pointer; /* Pointer cursor on button hover */
-}
-
-.top button:hover {
-  background: #4f3f2d; /* Dark brown color button hover */
-}
-
-/* Buttons Section Styles */
-.buttons {
-  text-align: center; /* Center align all button elements */
-  margin-bottom: 20px; /* Margin below button group section */
-}
-
-.buttons button {
-  padding: 10px 20px; /* Button inside padding for size */
-  margin: 5px; /* Space between button elements */
-  background: #b38b59; /* Light brown button background color */
-  border: none; /* Remove border from button element */
-  color: white; /* White text color on buttons */
-  border-radius: 5px; /* Rounded corners for button elements */
-  cursor: pointer; /* Mouse changes to pointer cursor */
-}
-
-.buttons button:hover {
-  background: #916c44; /* Darker brown on button hover */
-}
-
-/* Input and Textarea Styles */
-input, textarea {
-  width: 100%; /* Full width of inputs and textareas */
-  padding: 10px; /* Padding size within inputs */
-  margin: 10px 0; /* Margin between elements */
-  border-radius: 5px; /* Rounded corners style */
-  border: 2px solid #ccc; /* Grey border for inputs */
-  font-size: 16px; /* Font size for readability */
-}
-
-textarea {
-  resize: none; /* Prevent resizing of textarea */
-  background-color: #f1f1f1; /* Soft grey background */
-}
-
-textarea[readonly] {
-  color: #5a4b3c; /* Brown color for readonly text */
-}
-
-input[type="file"] {
-  background-color: #fff; /* White background for file input */
-}
-
-input[type="text"]:focus, textarea:focus {
-  outline: none; /* Remove outline on focus */
-  border-color: #b38b59; /* Change border color to brown on focus */
-}
-
-/* Box Container Styles */
-.box {
-  max-width: 600px; /* Maximum width for box */
-  margin: 0 auto; /* Center box horizontally on page */
-  background: white; /* White background color */
-  padding: 30px; /* Inner padding inside box */
-  border-radius: 10px; /* Rounded corners style */
-  border: 4px solid #ddd; /* Light grey border around box */
-}
-
-.box input, .box textarea, .box button {
-  margin-bottom: 15px; /* Add space below input elements */
-}
-
-/* Iframe Styles */
-.box iframe {
-  border: 4px solid #ddd; /* Light grey border around iframe */
-  border-radius: 10px; /* Rounded corners iframe container box */
-  width: 100%; /* Full width for iframe */
-  height: 600px; /* Set iframe height */
-}
-
-/* Book Image Styles */
-img {
-  max-width: 100%; /* Image fills its container */
-  margin-bottom: 10px; /* Space below image */
-  border-radius: 8px; /* Rounded corners for image */
-  border: 2px solid #ddd; /* Light grey border around image */
-}
-
-/* Action Buttons Styles */
-.actions {
-  margin-top: 10px; /* Space above buttons */
-  display: flex; /* Buttons displayed in row */
-  gap: 10px; /* Space between buttons */
-}
-
-button {
-  padding: 10px 20px; /* Button padding */
-  background: #b38b59; /* Soft brown background color */
-  color: white; /* White text color on buttons */
-  border: none; /* Remove border from buttons */
-  border-radius: 5px; /* Rounded corners for buttons */
-  cursor: pointer; /* Hand cursor on hover */
-  font-size: 18px; /* Button text size */
-}
-
-button:hover {
-  background: #916c44; /* Darker brown on button hover */
-}
+.description {
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}/*# sourceMappingURL=styles.css.map */

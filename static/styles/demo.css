@@ -1,0 +1,65 @@
+body {
+    font-family: sans-serif; /* clean modern font */
+    background: #fbf9f5;     /* light background */
+    color: #3e2f1c;          /* dark text color */
+    margin: 0;
+    padding: 20px;           /* space around content */
+  }
+  
+  h2 {
+    margin-bottom: 20px;     /* space below heading */
+  }
+  
+  .book-pair {
+    display: flex;           /* row layout */
+    gap: 20px;               /* space between columns */
+    align-items: stretch;    /* equal height items */
+    margin-bottom: 30px;     /* space between pairs */
+  }
+  
+  .book-img {
+    width: 300px;            /* fixed image width */
+    object-fit: cover;       /* crop and fill */
+    border-radius: 8px;      /* rounded corners */
+    border: 2px solid #ddd;  /* light gray border */
+  }
+  
+  .book-info {
+    flex: 1;                 /* take up space */
+    display: flex;           /* stack children */
+    flex-direction: column;  /* vertical layout */
+    justify-content: space-between; /* space fill */
+  }
+  
+  textarea {
+    width: 100%;             /* fill container */
+    height: 150px;           /* fixed height */
+    padding: 10px;           /* inner space */
+    margin-bottom: 10px;     /* gap below */
+    border: 2px solid #ccc;  /* light border */
+    border-radius: 5px;      /* rounded edges */
+    resize: none;            /* no resize option */
+    background: #f1f1f1;     /* light gray background */
+    color: #5a4b3c;          /* muted text */
+    font-size: 14px;         /* small readable text */
+  }
+  
+  .actions {
+    display: flex;           /* row of buttons */
+    gap: 10px;               /* space between buttons */
+  }
+  
+  button {
+    padding: 10px 20px;      /* button size */
+    background: #b38b59;     /* soft brown color */
+    color: white;            /* text color */
+    border: none;            /* no border */
+    border-radius: 5px;      /* rounded button */
+    cursor: pointer;         /* hand cursor */
+    font-size: 18px;         /* large text */
+  }
+  
+  button:hover {
+    background: #916c44;     /* darker on hover */
+  }
+  
